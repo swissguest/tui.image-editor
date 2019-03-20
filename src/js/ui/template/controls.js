@@ -1,8 +1,6 @@
-export default ({locale, biImage, iconStyle: {normal, hover, disabled}, loadButtonStyle, downloadButtonStyle}) => (`
+export default (
+    {locale, iconStyle: {normal, hover, disabled}, loadButtonStyle, downloadButtonStyle, uploadButtonStyle}) => (`
     <div class="tui-image-editor-controls">
-        <!-- div class="tui-image-editor-controls-logo">
-            <img src="${biImage}" />
-        </div -->
         <ul class="tui-image-editor-menu">
             <li id="tie-btn-undo" class="tui-image-editor-item" title="${locale.localize('Undo')}">
                 <svg class="svg_ic-menu">
@@ -50,9 +48,18 @@ export default ({locale, biImage, iconStyle: {normal, hover, disabled}, loadButt
             <!-- div style="${loadButtonStyle}">
                 ${locale.localize('Load')}
                 <input type="file" class="tui-image-editor-load-btn" />
-            </div -->
+            </div>
             <button class="tui-image-editor-download-btn" style="${downloadButtonStyle}">
                 ${locale.localize('Download')}
+            </button -->
+            <button class="tui-image-editor-cancel-btn" style="${uploadButtonStyle}">
+                ${locale.localize('Verlassen ohne Speichern')}
+            </button>
+            <button class="tui-image-editor-upload-and-stay-btn" style="${uploadButtonStyle}">
+                ${locale.localize('Sichern und weiter bearbeiten')}
+            </button>
+            <button class="tui-image-editor-upload-and-return-btn" style="${uploadButtonStyle}">
+                ${locale.localize('Sichern')}
             </button>
         </div>
     </div>

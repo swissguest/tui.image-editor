@@ -30,6 +30,13 @@ export default {
     'downloadButton.fontFamily': '\'Noto Sans\', sans-serif',
     'downloadButton.fontSize': '12px',
 
+    // upload button
+    'uploadButton.backgroundColor': '#fdba3b',
+    'uploadButton.border': '1px solid #fdba3b',
+    'uploadButton.color': '#fff',
+    'uploadButton.fontFamily': '\'Noto Sans\', sans-serif',
+    'uploadButton.fontSize': '12px',
+
     // main icons
     'menu.normalIcon.path': '/static/appschik/tui/img/icon-d.svg',
     'menu.normalIcon.name': 'icon-d',

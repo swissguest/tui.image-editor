@@ -71,6 +71,9 @@ class Ui {
             'delete': this._menuElement.querySelector('#tie-btn-delete'),
             'deleteAll': this._menuElement.querySelector('#tie-btn-delete-all'),
             'download': this._selectedElement.querySelectorAll('.tui-image-editor-download-btn'),
+            'uploadAndStay': this._selectedElement.querySelectorAll('.tui-image-editor-upload-and-stay-btn'),
+            'uploadAndReturn': this._selectedElement.querySelectorAll('.tui-image-editor-upload-and-return-btn'),
+            'closeAndReturn': this._selectedElement.querySelectorAll('.tui-image-editor-cancel-btn'),
             'load': this._selectedElement.querySelectorAll('.tui-image-editor-load-btn')
         };
 
@@ -310,18 +313,18 @@ class Ui {
         selectedElement.classList.add('tui-image-editor-container');
         selectedElement.innerHTML = controls({
             locale: this._locale,
-            biImage: this.theme.getStyle('common.bi'),
             iconStyle: this.theme.getStyle('menu.icon'),
             loadButtonStyle: this.theme.getStyle('loadButton'),
-            downloadButtonStyle: this.theme.getStyle('downloadButton')
+            downloadButtonStyle: this.theme.getStyle('downloadButton'),
+            uploadButtonStyle: this.theme.getStyle('uploadButton')
         }) +
         mainContainer({
             locale: this._locale,
-            biImage: this.theme.getStyle('common.bi'),
             commonStyle: this.theme.getStyle('common'),
             headerStyle: this.theme.getStyle('header'),
             loadButtonStyle: this.theme.getStyle('loadButton'),
             downloadButtonStyle: this.theme.getStyle('downloadButton'),
+            uploadButtonStyle: this.theme.getStyle('uploadButton'),
             submenuStyle: this.theme.getStyle('submenu')
         });
 
@@ -383,6 +386,35 @@ class Ui {
     }
 
     /**
+     * Add close event
+     * @private
+     */
+    _addCancelEvent() {
+        snippet.forEach(this._els.closeAndReturn, element => {
+            element.addEventListener('click', () => {
+                this._actions.main.closeAndReturn();
+            });
+        });
+    }
+
+    /**
+     * Add upload event
+     * @private
+     */
+    _addUploadEvents() {
+        snippet.forEach(this._els.uploadAndStay, element => {
+            element.addEventListener('click', () => {
+                this._actions.main.uploadAndStay();
+            });
+        });
+        snippet.forEach(this._els.uploadAndReturn, element => {
+            element.addEventListener('click', () => {
+                this._actions.main.uploadAndReturn();
+            });
+        });
+    }
+
+    /**
      * Add load event
      * @private
      */
@@ -439,6 +471,8 @@ class Ui {
         this._addHelpActionEvent('deleteAll');
 
         this._addDownloadEvent();
+        this._addUploadEvents();
+        this._addCancelEvent();
 
         snippet.forEach(this.options.menu, menuName => {
             this._addMenuEvent(menuName);
@@ -455,11 +489,13 @@ class Ui {
     initCanvas() {
         const loadImageInfo = this._getLoadImage();
         const uploadImageFunction = this._getUploadImageFunction();
+        const returnUrl = this._getReturnUrl();
         if (loadImageInfo.path) {
             this._actions.main.initLoadImage(
                 loadImageInfo.path,
                 loadImageInfo.name,
-                uploadImageFunction
+                uploadImageFunction,
+                returnUrl
             ).then(() => {
                 this.activeMenuEvent();
             });
@@ -489,7 +525,27 @@ class Ui {
     }
 
     _getUploadImageFunction() {
-        return this.options.uploadImageFunction;
+        if (this.options.uploadImageFunction) {
+            return this.options.uploadImageFunction;
+        }
+
+        return function() {
+            console.log(
+                'Custom uploadImageFunction was not configured in options dictionary.'
+            );
+        };
+    }
+
+    _getReturnUrl() {
+        if (this.options.returnUrl) {
+            return this.options.returnUrl;
+        }
+
+        return function() {
+            console.log(
+                'Custom returnUrl was not configured in options dictionary.'
+            );
+        };
     }
 
     /**

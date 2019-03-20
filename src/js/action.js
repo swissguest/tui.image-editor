@@ -38,10 +38,11 @@ export default {
         };
 
         return extend({
-            initLoadImage: (imagePath, imageName, uploadImageFunction) => (
+            initLoadImage: (imagePath, imageName, uploadImageFunction, returnUrl) => (
                 this.loadImageFromURL(imagePath, imageName).then(sizeValue => {
                     exitCropOnAction();
                     this.ui.uploadImageFunction = uploadImageFunction;
+                    this.ui.returnUrl = returnUrl;
                     this.ui.initializeImgUrl = imagePath;
                     this.ui.resizeEditor({imageSize: sizeValue});
                     this.clearUndoStack();
@@ -94,10 +95,16 @@ export default {
                     Promise.reject(message)
                 ));
             },
-            download: () => {
-                this.ui.uploadImageFunction(this.toDataURL());
+            uploadAndReturn: () => {
+                this.ui.uploadImageFunction(this.toDataURL(), 'uploadAndReturn');
             },
-            downloadOriginal: () => {
+            uploadAndStay: () => {
+                this.ui.uploadImageFunction(this.toDataURL(), 'uploadAndStay');
+            },
+            closeAndReturn: () => {
+                window.location.href = this.ui.returnUrl;
+            },
+            download: () => {
                 const dataURL = this.toDataURL();
                 let imageName = this.getImageName();
                 let blob, type, w;
