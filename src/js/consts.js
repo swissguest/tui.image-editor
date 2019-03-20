@@ -199,30 +199,25 @@ module.exports = {
             max: 255,
             value: 100
         },
-        /** brightnessRange: {
-            min: -255,
-            max: 255,
-            value: 100
-        }, */
         brightnessRange: {
             min: -40,
             max: 60,
             value: 0
         },
+        contrastRange: {
+            min: -60,
+            max: 80,
+            value: 0
+        },
+        saturateRange: {
+            min: -40,
+            max: 80,
+            value: 0
+        },
         noiseRange: {
             min: 0,
-            max: 1000,
-            value: 100
-        },
-        pixelateRange: {
-            min: 2,
-            max: 20,
-            value: 4
-        },
-        colorfilterThresholeRange: {
-            min: 0,
-            max: 255,
-            value: 45
+            max: 60,
+            value: 0
         }
     }
 };

@@ -371,25 +371,6 @@ class ImageEditor {
      * @private
      */
     _onMouseDown(event, originPointer) {
-        /**
-         * The mouse down event with position x, y on canvas
-         * @event ImageEditor#mousedown
-         * @param {Object} event - browser mouse event object
-         * @param {Object} originPointer origin pointer
-         *  @param {Number} originPointer.x x position
-         *  @param {Number} originPointer.y y position
-         * @example
-         * imageEditor.on('mousedown', function(event, originPointer) {
-         *     console.log(event);
-         *     console.log(originPointer);
-         *     if (imageEditor.hasFilter('colorFilter')) {
-         *         imageEditor.applyFilter('colorFilter', {
-         *             x: parseInt(originPointer.x, 10),
-         *             y: parseInt(originPointer.y, 10)
-         *         });
-         *     }
-         * });
-         */
         this.fire(events.MOUSE_DOWN, event, originPointer);
     }
 

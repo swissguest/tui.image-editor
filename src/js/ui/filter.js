@@ -10,21 +10,14 @@ const PICKER_CONTROL_HEIGHT = '130px';
 const BLEND_OPTIONS = ['add', 'diff', 'subtract', 'multiply', 'screen', 'lighten', 'darken'];
 const FILTER_OPTIONS = [
     'grayscale',
-    'invert',
-    'sepia',
-    'sepia2',
     'blur',
     'sharpen',
-    'emboss',
     'remove-white',
     'gradient-transparency',
     'brightness',
-    'noise',
-    'pixelate',
-    'color-filter'
-    // 'tint',
-    // 'multiply',
-    // 'blend'
+    'contrast',
+    'saturate',
+    'noise'
 ];
 
 /**
@@ -67,21 +60,11 @@ class Filter extends Submenu {
         this._els.removewhiteThresholdRange.on('change', () => changeRangeValue('removeWhite'));
         this._els.removewhiteDistanceRange.on('change', () => changeRangeValue('removeWhite'));
         this._els.gradientTransparencyRange.on('change', () => changeRangeValue('gradientTransparency'));
-        this._els.colorfilterThresholeRange.on('change', () => changeRangeValue('colorFilter'));
-        this._els.pixelateRange.on('change', () => changeRangeValue('pixelate'));
-        this._els.noiseRange.on('change', () => changeRangeValue('noise'));
+
         this._els.brightnessRange.on('change', () => changeRangeValue('brightness'));
-        /**
-        this._els.blendType.addEventListener('change', () => changeRangeValue('blend'));
-        this._els.filterBlendColor.on('change', () => changeRangeValue('blend'));
-        this._els.filterMultiplyColor.on('change', () => changeRangeValue('multiply'));
-        this._els.tintOpacity.on('change', () => changeRangeValue('tint'));
-        this._els.filterTintColor.on('change', () => changeRangeValue('tint'));
-        this._els.blendType.addEventListener('click', event => event.stopPropagation());
-        this._els.filterMultiplyColor.on('changeShow', this.colorPickerChangeShow.bind(this));
-        this._els.filterTintColor.on('changeShow', this.colorPickerChangeShow.bind(this));
-        this._els.filterBlendColor.on('changeShow', this.colorPickerChangeShow.bind(this));
-         */
+        this._els.contrastRange.on('change', () => changeRangeValue('contrast'));
+        this._els.saturateRange.on('change', () => changeRangeValue('saturate'));
+        this._els.noiseRange.on('change', () => changeRangeValue('noise'));
     }
 
     /**
@@ -120,32 +103,18 @@ class Filter extends Submenu {
             case 'gradientTransparency':
                 option.threshold = toInteger(this._els.gradientTransparencyRange.value);
                 break;
-            case 'colorFilter':
-                option.color = '#FFFFFF';
-                option.threshold = this._els.colorfilterThresholeRange.value;
+            case 'brightness':
+                option.brightness = toInteger(this._els.brightnessRange.value);
                 break;
-            case 'pixelate':
-                option.blocksize = toInteger(this._els.pixelateRange.value);
+            case 'contrast':
+                option.contrast = toInteger(this._els.contrastRange.value);
+                break;
+            case 'saturate':
+                option.saturate = toInteger(this._els.saturateRange.value);
                 break;
             case 'noise':
                 option.noise = toInteger(this._els.noiseRange.value);
                 break;
-            case 'brightness':
-                option.brightness = toInteger(this._els.brightnessRange.value);
-                break;
-            /**
-            case 'blend':
-                option.color = this._els.filterBlendColor.color;
-                option.mode = this._els.blendType.value;
-                break;
-            case 'multiply':
-                option.color = this._els.filterMultiplyColor.color;
-                break;
-            case 'tint':
-                option.color = this._els.filterTintColor.color;
-                option.opacity = this._els.tintOpacity.value;
-                break;
-             */
             default:
                 break;
         }
@@ -176,32 +145,19 @@ class Filter extends Submenu {
                 selector('#tie-brightness-range'),
                 FILTER_RANGE.brightnessRange
             ),
+            contrastRange: new Range(
+                selector('#tie-contrast-range'),
+                FILTER_RANGE.contrastRange
+            ),
+            saturateRange: new Range(
+                selector('#tie-saturate-range'),
+                FILTER_RANGE.saturateRange
+            ),
             noiseRange: new Range(
                 selector('#tie-noise-range'),
                 FILTER_RANGE.noiseRange
-            ),
-            pixelateRange: new Range(
-                selector('#tie-pixelate-range'),
-                FILTER_RANGE.pixelateRange
-            ),
-            colorfilterThresholeRange: new Range(
-                selector('#tie-colorfilter-threshole-range'),
-                FILTER_RANGE.colorfilterThresholeRange
             )
-            /**
-            filterTintColor: new Colorpicker(selector('#tie-filter-tint-color'), '#03bd9e', this.toggleDirection),
-            filterMultiplyColor: new Colorpicker(selector('#tie-filter-multiply-color'), '#515ce6', this.toggleDirection),
-            filterBlendColor: new Colorpicker(selector('#tie-filter-blend-color'), '#ffbb3b', this.toggleDirection)
-             */
         };
-        /**
-        this._els.tintOpacity = this._pickerWithRange(this._els.filterTintColor.pickerControl);
-        this._els.blendType = this._pickerWithSelectbox(this._els.filterBlendColor.pickerControl);
-
-        this.colorPickerControls.push(this._els.filterTintColor);
-        this.colorPickerControls.push(this._els.filterMultiplyColor);
-        this.colorPickerControls.push(this._els.filterBlendColor);
-         */
     }
 
     /**
