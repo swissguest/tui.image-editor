@@ -69,7 +69,7 @@ export default ({locale}) => (`
                 </div>
             </div>
         </li>
-        <li class="tui-image-editor-partition only-left-right">
+        <li class="tui-image-editor-partition">
             <div></div>
         </li>
         <li class="tui-image-editor-submenu-align">
@@ -114,7 +114,7 @@ export default ({locale}) => (`
                 </div>
             </div>
         </li>
-        <li class="tui-image-editor-partition">
+        <!-- li class="tui-image-editor-partition">
             <div></div>
         </li>
         <li>
@@ -139,6 +139,6 @@ export default ({locale}) => (`
                     <label for="tie-blend"></label>
                 </div>
             </div>
-        </li>
+        </li -->
     </ul>
 `);

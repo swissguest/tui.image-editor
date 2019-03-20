@@ -1,5 +1,5 @@
 import snippet from 'tui-code-snippet';
-import Colorpicker from './tools/colorpicker';
+// import Colorpicker from './tools/colorpicker';
 import Range from './tools/range';
 import Submenu from './submenuBase';
 import templateHtml from './template/submenu/filter';
@@ -21,10 +21,10 @@ const FILTER_OPTIONS = [
     'brightness',
     'noise',
     'pixelate',
-    'color-filter',
-    'tint',
-    'multiply',
-    'blend'
+    'color-filter'
+    // 'tint',
+    // 'multiply',
+    // 'blend'
 ];
 
 /**
@@ -71,6 +71,7 @@ class Filter extends Submenu {
         this._els.pixelateRange.on('change', () => changeRangeValue('pixelate'));
         this._els.noiseRange.on('change', () => changeRangeValue('noise'));
         this._els.brightnessRange.on('change', () => changeRangeValue('brightness'));
+        /**
         this._els.blendType.addEventListener('change', () => changeRangeValue('blend'));
         this._els.filterBlendColor.on('change', () => changeRangeValue('blend'));
         this._els.filterMultiplyColor.on('change', () => changeRangeValue('multiply'));
@@ -80,6 +81,7 @@ class Filter extends Submenu {
         this._els.filterMultiplyColor.on('changeShow', this.colorPickerChangeShow.bind(this));
         this._els.filterTintColor.on('changeShow', this.colorPickerChangeShow.bind(this));
         this._els.filterBlendColor.on('changeShow', this.colorPickerChangeShow.bind(this));
+         */
     }
 
     /**
@@ -131,6 +133,7 @@ class Filter extends Submenu {
             case 'brightness':
                 option.brightness = toInteger(this._els.brightnessRange.value);
                 break;
+            /**
             case 'blend':
                 option.color = this._els.filterBlendColor.color;
                 option.mode = this._els.blendType.value;
@@ -142,6 +145,7 @@ class Filter extends Submenu {
                 option.color = this._els.filterTintColor.color;
                 option.opacity = this._els.tintOpacity.value;
                 break;
+             */
             default:
                 break;
         }
@@ -183,18 +187,21 @@ class Filter extends Submenu {
             colorfilterThresholeRange: new Range(
                 selector('#tie-colorfilter-threshole-range'),
                 FILTER_RANGE.colorfilterThresholeRange
-            ),
+            )
+            /**
             filterTintColor: new Colorpicker(selector('#tie-filter-tint-color'), '#03bd9e', this.toggleDirection),
             filterMultiplyColor: new Colorpicker(selector('#tie-filter-multiply-color'), '#515ce6', this.toggleDirection),
             filterBlendColor: new Colorpicker(selector('#tie-filter-blend-color'), '#ffbb3b', this.toggleDirection)
+             */
         };
-
+        /**
         this._els.tintOpacity = this._pickerWithRange(this._els.filterTintColor.pickerControl);
         this._els.blendType = this._pickerWithSelectbox(this._els.filterBlendColor.pickerControl);
 
         this.colorPickerControls.push(this._els.filterTintColor);
         this.colorPickerControls.push(this._els.filterMultiplyColor);
         this.colorPickerControls.push(this._els.filterBlendColor);
+         */
     }
 
     /**

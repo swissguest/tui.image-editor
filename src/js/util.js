@@ -2,9 +2,8 @@
  * @author NHN Ent. FE Development Team <dl_javascript@nhnent.com>
  * @fileoverview Util
  */
-import {forEach, sendHostname} from 'tui-code-snippet';
+import {forEach} from 'tui-code-snippet';
 const {min, max} = Math;
-let hostnameSent = false;
 
 module.exports = {
 
@@ -119,18 +118,6 @@ module.exports = {
         const a = alpha || 1;
 
         return `rgba(${r}, ${g}, ${b}, ${a})`;
-    },
-
-    /**
-     * send hostname
-     */
-    sendHostName() {
-        if (hostnameSent) {
-            return;
-        }
-        hostnameSent = true;
-
-        sendHostname('image-editor', 'UA-129999381-1');
     },
 
     /**

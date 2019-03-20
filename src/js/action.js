@@ -38,9 +38,10 @@ export default {
         };
 
         return extend({
-            initLoadImage: (imagePath, imageName) => (
+            initLoadImage: (imagePath, imageName, uploadImageFunction) => (
                 this.loadImageFromURL(imagePath, imageName).then(sizeValue => {
                     exitCropOnAction();
+                    this.ui.uploadImageFunction = uploadImageFunction;
                     this.ui.initializeImgUrl = imagePath;
                     this.ui.resizeEditor({imageSize: sizeValue});
                     this.clearUndoStack();
@@ -94,6 +95,9 @@ export default {
                 ));
             },
             download: () => {
+                this.ui.uploadImageFunction(this.toDataURL());
+            },
+            downloadOriginal: () => {
                 const dataURL = this.toDataURL();
                 let imageName = this.getImageName();
                 let blob, type, w;

@@ -63,6 +63,7 @@
     "test": "karma start --no-single-run",
     "test:ne": "KARMA_SERVER=ne karma start",
     "test:types": "tsc --project test/types",
+    "build": "webpack && webpack -p",
     "bundle": "webpack && webpack -p && npm run bundle:svg && node tsBannerGenerator.js",
     "bundle:svg": "node makesvg.js",
     "serve": "webpack-dev-server --inline --hot -d",

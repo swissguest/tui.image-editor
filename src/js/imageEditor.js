@@ -10,7 +10,6 @@ import action from './action';
 import commandFactory from './factory/command';
 import Graphics from './graphics';
 import consts from './consts';
-import {sendHostName} from './util';
 
 const events = consts.eventNames;
 const commands = consts.commandNames;
@@ -142,10 +141,6 @@ class ImageEditor {
             applyCropSelectionStyle: options.applyCropSelectionStyle,
             applyGroupSelectionStyle: options.applyGroupSelectionStyle
         });
-
-        if (options.usageStatistics) {
-            sendHostName();
-        }
 
         if (this.ui) {
             this.ui.initCanvas();

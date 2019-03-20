@@ -199,10 +199,15 @@ module.exports = {
             max: 255,
             value: 100
         },
-        brightnessRange: {
+        /** brightnessRange: {
             min: -255,
             max: 255,
             value: 100
+        }, */
+        brightnessRange: {
+            min: -40,
+            max: 60,
+            value: 0
         },
         noiseRange: {
             min: 0,

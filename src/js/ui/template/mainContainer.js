@@ -1,16 +1,25 @@
 export default ({locale, biImage, commonStyle, headerStyle, loadButtonStyle, downloadButtonStyle, submenuStyle}) => (`
     <div class="tui-image-editor-main-container" style="${commonStyle}">
         <div class="tui-image-editor-header" style="${headerStyle}">
-            <div class="tui-image-editor-header-logo">
+            <!-- div class="tui-image-editor-header-logo">
                 <img src="${biImage}" />
-            </div>
+            </div -->
             <div class="tui-image-editor-header-buttons">
-                <div style="${loadButtonStyle}">
+                <!-- div style="${loadButtonStyle}">
                     ${locale.localize('Load')}
                     <input type="file" class="tui-image-editor-load-btn" />
-                </div>
-                <button class="tui-image-editor-download-btn" style="${downloadButtonStyle}">
+                </div -->
+                <!-- button class="tui-image-editor-download-btn" style="${downloadButtonStyle}">
                     ${locale.localize('Download')}
+                </button -->
+                <button>
+                    ${locale.localize('Verlassen ohne Speichern')}
+                </button>
+                <button>
+                    ${locale.localize('Sichern und weiter bearbeiten')}
+                </button>
+                <button>
+                    ${locale.localize('Sichern')}
                 </button>
             </div>
         </div>
