@@ -325,7 +325,8 @@ class Ui {
             loadButtonStyle: this.theme.getStyle('loadButton'),
             downloadButtonStyle: this.theme.getStyle('downloadButton'),
             uploadButtonStyle: this.theme.getStyle('uploadButton'),
-            submenuStyle: this.theme.getStyle('submenu')
+            submenuStyle: this.theme.getStyle('submenu'),
+            iconStyle: this.theme.getStyle('menu.icon')
         });
 
         this._selectedElement = selectedElement;
