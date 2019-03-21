@@ -6,8 +6,8 @@
  */
 export default ({locale, iconStyle: {normal, active}}) => (`
     <ul class="tui-image-editor-submenu-item">
-        <li id="tie-retate-button">
-            <div class="tui-image-editor-button clockwise">
+        <li id="tie-rotate-buttons">
+            <div class="tui-image-editor-button clockwise90">
                 <div>
                     <svg class="svg_ic-submenu">
                         <use xlink:href="${normal.path}#${normal.name}-ic-rotate-clockwise"
@@ -16,9 +16,20 @@ export default ({locale, iconStyle: {normal, active}}) => (`
                             class="active"/>
                     </svg>
                 </div>
-                <label> 30 </label>
+                <label> +90 </label>
             </div>
-            <div class="tui-image-editor-button counterclockwise">
+            <div class="tui-image-editor-button rotate180">
+                <div>
+                    <svg class="svg_ic-submenu">
+                        <use xlink:href="/static/appschik/tui/img/icon-d.svg#icon-d-ic-rotate"
+                            class="normal"/>
+                        <use xlink:href="/static/appschik/tui/img/icon-d.svg#icon-d-ic-rotate"
+                            class="active"/>
+                    </svg>
+                </div>
+                <label> 180 </label>
+            </div>
+            <div class="tui-image-editor-button counterclockwise90">
                 <div>
                     <svg class="svg_ic-submenu">
                         <use xlink:href="${normal.path}#${normal.name}-ic-rotate-counterclockwise"
@@ -27,16 +38,9 @@ export default ({locale, iconStyle: {normal, active}}) => (`
                             class="active"/>
                     </svg>
                 </div>
-                <label> -30 </label>
+                <label> -90 </label>
+                <!-- locale param use ${locale.localize('Range')} -->
             </div>
-        </li>
-        <li class="tui-image-editor-partition only-left-right">
-            <div></div>
-        </li>
-        <li class="tui-image-editor-newline tui-image-editor-range-wrap">
-            <label class="range">${locale.localize('Range')}</label>
-            <div id="tie-rotate-range"></div>
-            <input id="tie-ratate-range-value" class="tui-image-editor-range-value" value="0" />
         </li>
     </ul>
 `);

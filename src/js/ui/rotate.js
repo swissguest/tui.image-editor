@@ -1,11 +1,9 @@
-import Range from './tools/range';
 import Submenu from './submenuBase';
 import templateHtml from './template/submenu/rotate';
-import {toInteger} from '../util';
-import {defaultRotateRangeValus} from '../consts';
 
-const CLOCKWISE = 30;
-const COUNTERCLOCKWISE = -30;
+const CLOCKWISE90 = 90;
+const COUNTERCLOCKWISE90 = -90;
+const ROTATE180 = 180;
 
 /**
  * Rotate ui class
@@ -23,9 +21,7 @@ class Rotate extends Submenu {
         });
 
         this._els = {
-            rotateButton: this.selector('#tie-retate-button'),
-            rotateRange: new Range(this.selector('#tie-rotate-range'), defaultRotateRangeValus),
-            rotateRangeValue: this.selector('#tie-ratate-range-value')
+            rotateButton: this.selector('#tie-rotate-buttons')
         };
     }
 
@@ -39,19 +35,6 @@ class Rotate extends Submenu {
         // {rotate, setAngle}
         this.actions = actions;
         this._els.rotateButton.addEventListener('click', this._changeRotateForButton.bind(this));
-        this._els.rotateRange.on('change', this._changeRotateForRange.bind(this));
-        this._els.rotateRangeValue.setAttribute('readonly', true);
-    }
-
-    /**
-     * Change rotate for range
-     * @param {number} value - angle value
-     * @private
-     */
-    _changeRotateForRange(value) {
-        const angle = toInteger(value);
-        this._els.rotateRangeValue.value = angle;
-        this.actions.setAngle(angle);
     }
 
     /**
@@ -62,10 +45,15 @@ class Rotate extends Submenu {
     _changeRotateForButton(event) {
         const button = event.target.closest('.tui-image-editor-button');
         if (button) {
-            const rotateType = this.getButtonType(button, ['counterclockwise', 'clockwise']);
+            const rotateType = this.getButtonType(button, [
+                'counterclockwise90',
+                'clockwise90',
+                'rotate180'
+            ]);
             const rotateAngle = {
-                clockwise: CLOCKWISE,
-                counterclockwise: COUNTERCLOCKWISE
+                clockwise90: CLOCKWISE90,
+                counterclockwise90: COUNTERCLOCKWISE90,
+                rotate180: ROTATE180
             }[rotateType];
             this.actions.rotate(rotateAngle);
         }

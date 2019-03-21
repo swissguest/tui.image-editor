@@ -151,13 +151,6 @@ module.exports = {
         'icon-bubble': 'M44 48L34 58V48H12C5.373 48 0 42.627 0 36V12C0 5.373 5.373 0 12 0h40c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12h-8z'
     },
 
-    defaultRotateRangeValus: {
-        realTimeEvent: true,
-        min: -360,
-        max: 360,
-        value: 0
-    },
-
     defaultDrawRangeValus: {
         min: 5,
         max: 30,
