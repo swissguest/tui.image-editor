@@ -96,10 +96,10 @@ export default {
                 ));
             },
             uploadAndReturn: () => {
-                this.ui.uploadImageFunction(this.toDataURL(), 'uploadAndReturn');
+                this.ui.uploadImageFunction(this, 'uploadAndReturn');
             },
             uploadAndStay: () => {
-                this.ui.uploadImageFunction(this.toDataURL(), 'uploadAndStay');
+                this.ui.uploadImageFunction(this, 'uploadAndStay');
             },
             closeAndReturn: () => {
                 window.location.href = this.ui.returnUrl;
