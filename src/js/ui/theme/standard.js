@@ -5,8 +5,8 @@
 
 export default {
     'common.bi.image': '',
-    'common.bisize.width': '251px',
-    'common.bisize.height': '21px',
+    'common.bisize.width': '',
+    'common.bisize.height': '',
     'common.backgroundImage': 'none',
     'common.backgroundColor': '#1e1e1e',
     'common.border': '0px',
@@ -20,21 +20,21 @@ export default {
     'loadButton.backgroundColor': '#fff',
     'loadButton.border': '1px solid #ddd',
     'loadButton.color': '#222',
-    'loadButton.fontFamily': '\'Noto Sans\', sans-serif',
+    'loadButton.fontFamily': '',
     'loadButton.fontSize': '12px',
 
     // download button
     'downloadButton.backgroundColor': '#fdba3b',
     'downloadButton.border': '1px solid #fdba3b',
     'downloadButton.color': '#fff',
-    'downloadButton.fontFamily': '\'Noto Sans\', sans-serif',
+    'downloadButton.fontFamily': '',
     'downloadButton.fontSize': '12px',
 
     // upload button
     'uploadButton.backgroundColor': '#fdba3b',
     'uploadButton.border': '1px solid #fdba3b',
     'uploadButton.color': '#fff',
-    'uploadButton.fontFamily': '\'Noto Sans\', sans-serif',
+    'uploadButton.fontFamily': '',
     'uploadButton.fontSize': '12px',
 
     // main icons
