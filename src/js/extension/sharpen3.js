@@ -4,13 +4,13 @@
  */
 import fabric from 'fabric/dist/fabric.require';
 
-const Sharpen = fabric.util.createClass(fabric.Image.filters.Convolute, /** @lends Convolute.prototype */{
+const Sharpen3 = fabric.util.createClass(fabric.Image.filters.Convolute, /** @lends Convolute.prototype */{
     /**
      * Filter type
      * @param {String} type
      * @default
      */
-    type: 'Sharpen',
+    type: 'Sharpen3',
 
     /**
      * constructor
@@ -18,11 +18,11 @@ const Sharpen = fabric.util.createClass(fabric.Image.filters.Convolute, /** @len
      */
     initialize() {
         this.matrix = [
-            -0.3, -0.3, -0.3,
-            -0.3, 3.4, -0.3,
-            -0.3, -0.3, -0.3
+            0, -1, 0,
+            -1, 5, -1,
+            0, -1, 0
         ];
     }
 });
 
-module.exports = Sharpen;
+module.exports = Sharpen3;

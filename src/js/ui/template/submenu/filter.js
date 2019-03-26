@@ -15,8 +15,16 @@ export default ({locale}) => (`
                     <label for="tie-blur">${locale.localize('Blur')}</label>
                 </div>
                 <div class="tui-image-editor-checkbox">
+                    <input type="checkbox" id="tie-sharpen2">
+                    <label for="tie-sharpen2">${locale.localize('Sharpen S')}</label>
+                </div>
+                <div class="tui-image-editor-checkbox">
                     <input type="checkbox" id="tie-sharpen">
-                    <label for="tie-sharpen">${locale.localize('Sharpen')}</label>
+                    <label for="tie-sharpen">${locale.localize('Sharpen M')}</label>
+                </div>
+                <div class="tui-image-editor-checkbox">
+                    <input type="checkbox" id="tie-sharpen3">
+                    <label for="tie-sharpen3">${locale.localize('Sharpen L')}</label>
                 </div>
             </div>
         </li>

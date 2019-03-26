@@ -12,6 +12,8 @@ const FILTER_OPTIONS = [
     'grayscale',
     'blur',
     'sharpen',
+    'sharpen2',
+    'sharpen3',
     'remove-white',
     'gradient-transparency',
     'brightness',

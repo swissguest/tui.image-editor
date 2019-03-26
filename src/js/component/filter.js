@@ -10,12 +10,16 @@ import Mask from '../extension/mask';
 import consts from '../consts';
 import Blur from '../extension/blur';
 import Sharpen from '../extension/sharpen';
+import Sharpen2 from '../extension/sharpen2';
+import Sharpen3 from '../extension/sharpen3';
 
 const {rejectMessages} = consts;
 const {filters} = fabric.Image;
 filters.Mask = Mask;
 filters.Blur = Blur;
 filters.Sharpen = Sharpen;
+filters.Sharpen2 = Sharpen2;
+filters.Sharpen3 = Sharpen3;
 
 /**
  * Filter
